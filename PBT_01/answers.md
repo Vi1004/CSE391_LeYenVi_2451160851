@@ -3,17 +3,17 @@
 ## Câu A1 (5đ) - HTTP & Browser
 ### 1. Khi gõ https://shopee.vn vào trình duyệt và nhấn Enter, thứ tự ít nhất 5 bước xảy ra (từ DNS lookup đến render) là:
 * *Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/01_introduction_html_universe.md (Phần Cuộc Hành Trình 0.3 Giây Xuyên Đại Dương, phần 1.2. HTTP, phần 1.3. Browser Rendering)
-  **1. DNS Lookup:**
+  * **1. DNS Lookup:**
 Trước khi gửi yêu cầu, trình duyệt kiểm tra xem địa chỉ IP của shopee.vn đã được lưu trong bộ nhớ cache hay chưa. Nếu chưa có, nó sẽ gửi yêu cầu đến hệ thống DNS để phân giải tên miền thành địa chỉ IP của máy chủ.
-  **2. TCP/TLS Handshake (Thiết lập bảo mật):**
+  * **2. TCP/TLS Handshake (Thiết lập bảo mật):**
 Vì truy cập bằng https://, trình duyệt sẽ thiết lập kết nối bảo mật HTTPS bằng cách thực hiện quá trình TLS Handshake: xác minh chứng chỉ SSL/TLS của website, trao đổi khóa mã hóa và tạo kết nối an toàn giữa trình duyệt với máy chủ. Đây là bước thỏa thuận cách mã hóa để bảo vệ dữ liệu cá nhân của người dùng.
-  **3. HTTP Request - GET (Gửi yêu cầu):**
+  * **3. HTTP Request - GET (Gửi yêu cầu):**
 Khi kết nối thành công, trình duyệt gửi HTTP Request (thường là phương thức GET) đến máy chủ Shopee để yêu cầu tải nội dung trang chủ.
-  **4. Server Processing (Xử lý phía máy chủ)**
+  * **4. Server Processing (Xử lý phía máy chủ)**
 Máy chủ Shopee nhận yêu cầu, chuyển qua hệ thống xử lý phía Backend, kiểm tra dữ liệu cần thiết, xác định nội dung cần trả về, có thể truy vấn database hoặc gọi các dịch vụ nội bộ khác.
-  **5. HTTP Response (Phản hồi)**
+  * **5. HTTP Response (Phản hồi)**
 Sau khi xử lý xong, máy chủ gửi HTTP Response quay trở lại trình duyệt. Response này thường chứa file HTML chính cùng các liên kết đến CSS, JavaScript, hình ảnh và các tài nguyên khác
-  **6.Browser Rendering (Xây dựng giao diện):**
+  * **6.Browser Rendering (Xây dựng giao diện):**
 Trình duyệt bắt đầu tạo trang web hoàn chỉnh qua các bước:
 - Parse HTML: Dựng khung (Tạo cấu trúc trang).
 - Parse CSS: Trang trí (Sơn màu cam Shopee, chỉnh font chữ, bố cục,...).
@@ -47,6 +47,7 @@ Trình duyệt bắt đầu tạo trang web hoàn chỉnh qua các bước:
   * Sử dụng ```<div class="image"><img src="iphone.jpg"></div>```: Thiếu thuộc tính alt để mô tả nội dung ảnh, khiến Google không biết ảnh đó là sản phẩm gì. Và phải sử dụng ```<figure>``` cho phương tiện truyền thông có kèm chú thích.
   * Sử dụng ```<div class="footer">```: Google không nhận diện rõ đây là chân trang -> nên dùng <footer>: dùng cho phần cuối trang như copyright, links, contacts, giúp cấu trúc website đầy đủ và rõ ràng hơn.
 * Sửa lại:
+```
 <header>
     <div class="logo">ShopTLU</div>
 
@@ -70,7 +71,7 @@ Trình duyệt bắt đầu tạo trang web hoàn chỉnh qua các bước:
 <footer>
     © 2026 ShopTLU
 </footer>
-
+```
 ## Câu A3 (5đ) - Block vs Inline
 *Nguồn tham chiếu: CCC_Frontend_2026/tuan_1_html5/04_visible_part_html.md (Phần Block vs Inline)*
 * Kết quả hiển thị:
@@ -94,3 +95,4 @@ Trình duyệt bắt đầu tạo trang web hoàn chỉnh qua các bước:
   * Code rối và khó bảo trì: Layout bằng table thường lồng nhiều hàng/cột, rất dài và khó sửa.
   * Đã có công nghệ tối ưu hơn: Hiện nay, lập trình viên sử dụng các công cụ mạnh và linh hoạt hơn là CSS Grid và CSS Flexbox để xử lý bố cục trang web, dễ căn chỉnh hơn.
 # PHẦN B - THỰC HÀNH CODE (60 điểm)
+
