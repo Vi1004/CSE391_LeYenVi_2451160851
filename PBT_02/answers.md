@@ -84,3 +84,37 @@ Khi user bấm Submit cho mỗi trường hợp sau:
       Vd: 1. Ảnh feedback từ khách hàng
           2. Ảnh báo chí cần có ghi chú nguồn gốc, tác giả ở ngay bên dưới ảnh
   
+# PHẦN C — PHÂN TÍCH & SUY LUẬN (20 điểm)
+## Câu C1 (10đ) — Debug Form
+* 8 lỗi về validation, accessibility, và best practices
+  1. Lỗi 1: Dòng 2 - Input "Tên" không có `<label for="...">`, vi phạm accessibility
+     Sửa: `<label for="name">Tên:</label> <input type="text" id="name" name="name" required>`
+  2. Lỗi 2: Dòng 4 - Input "email" thiếu thẻ `<label>`, thiếu thuộc tính required và name, vi phạm accessibility
+     Sửa: `<label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>`
+  3. Lỗi 3: Dòng 6-7 - Input "password" thiếu thẻ `<label>`, thiếu thuộc tính minlength, vi phạm accessibility
+     Sửa: `<label for="password">Mật khẩu:</label> <input type="password" id="password" name="password" minlength="8" required>`
+          `<label for="confirm">Nhập lại mật khẩu:</label> <input type="password" id="confirm" name="confirm" required>`
+  4. Lỗi 4: Dòng 9 - Input "Phone" dùng type="text" - Không có validation số điện thoại
+     Sửa: `<label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>`
+  5. Lỗi 5: Dòng 11 - Thẻ `<select>` thiếu `<label>` và thuộc tính name, Accessibility kém
+     Sửa: `<label for="city">Thành phố:</label> <select id="city" name="city">...</select>`
+  6. Lỗi 6: Dòng 16 - Thẻ `<label>` không bao bọc hoặc liên kết với checkbox
+     Sửa: `<label><input type="checkbox" name="agree" required> Tôi đồng ý điều khoản</label>`
+  7. Lỗi 7: Dòng 20 - Dùng `<input type="submit">`, best practices hiện nay ưu tiên thẻ `<button>` vì nó chứa icon, định dạng linh hoạt hơn bên trong
+     Sửa: `<button type="submit">Gửi</button>`
+## Câu C2 (10đ) — Thiết kế chiến lược Validation
+1. Viết pattern regex cho CMND/CCCD và Số tài khoản
+* **CMND/CCCD (Đúng 12 số):** `pattern="[0-9]{12}"` hoặc pattern="\d{12}"
+* **Số tài khoản (10-15 số):** `pattern="[0-9]{10,15}"`
+  
+2. Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+HTML5 validation **không** đủ an toàn cho ứng dụng ngân hàng vì Xác thực HTML5 (Frontend) chỉ đóng vai trò hỗ trợ trải nghiệm người dùng (UX). Nó giúp người dùng biết họ nhập sai ngay lập tức mà chưa cần gửi dữ liệu đi. Tuy nhiên, nó cực kỳ dễ bị qua mặt. Một người dùng có kiến thức cơ bản về IT có thể nhấn F12, xóa thuộc tính required hoặc pattern trong mã nguồn, hoặc sử dụng các công cụ như Postman để gửi dữ liệu trực tiếp lên máy chủ mà không cần thông qua trình duyệt.
+
+3. Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+* So sánh hai trường dữ liệu: Ví dụ: kiểm tra ô "Mật khẩu" và "Nhập lại mật khẩu" có trùng khớp với nhau không.
+* Kiểm tra dữ liệu tồn tại/Trùng lặp: Ví dụ kiểm tra xem "Email" hoặc "Tên đăng nhập" này đã tồn tại trong cơ sở dữ liệu (Database) của hệ thống chưa.
+* Kiểm tra logic nghiệp vụ phức tạp/Động: Ví dụ kiểm tra nếu người dùng chọn quốc gia là "Việt Nam" thì ô "Số điện thoại" phải bắt đầu bằng "+84".
+
+4. Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+ * 1. Dữ liệu rác và sai định dạng (Data Integrity): Kẻ xấu có thể gửi những chuỗi văn bản cực dài hoặc chứa mã độc vào ô "Số tiền", gây tràn bộ nhớ hoặc làm hỏng database của ngân hàng.
+ * 2. Tấn công SQL Injection hoặc XSS: Nếu không validate và lọc dữ liệu ở Backend, hacker có thể gửi các câu lệnh SQL thông qua input (ví dụ: ' OR 1=1 --) để đánh cắp toàn bộ danh sách khách hàng hoặc chiếm quyền quản trị.
