@@ -15,7 +15,7 @@
 ## Câu A2 (5đ) - Validation Attributes
 Khi user bấm Submit cho mỗi trường hợp sau:
 1. TH1: <input type="text" required value="">   <!-- User để trống -->
-   Dự đoán: Bị chặn -> Vì thuộc tính required bắt buộc không được để trống, trình duyệt sẽ hiện thông báo "Vui lòng điền vào trường này"
+   Dự đoán: Bị chặn -> Vì thuộc tính required bắt buộc không được để trống, trình duyệt sẽ hiện thông báo "Please fill out this field"
 2. TH2: <input type="email" value="abc">        <!-- User gõ "abc" -->
    Dự đoán: Bị chặn -> Vì type="email" yêu cầu dữ liệu phải có định dạng địa chỉ email (có @). Chuỗi "abc" thiếu ký tự @ nên sẽ báo lỗi không hợp lệ
 3. TH3: <input type="number" min="1" max="10" value="15"> <!-- User gõ 15 -->
