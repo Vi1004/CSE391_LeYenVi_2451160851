@@ -84,6 +84,12 @@ Khi user bấm Submit cho mỗi trường hợp sau:
       Vd: 1. Ảnh feedback từ khách hàng
           2. Ảnh báo chí cần có ghi chú nguồn gốc, tác giả ở ngay bên dưới ảnh
   
+# PHẦN B - THỰC HÀNH CODE (55 điểm)
+## Câu B1 (20đ) - Form Đăng ký tài khoản
+* Xác nhận password: HTML không thể validate confirm password vì
+     *Thiếu khả năng so sánh: HTML5 không có attribute nào cho phép một input "nhìn" sang giá trị của một input khác để so sánh trực tiếp (ví dụ: match="password_id" không tồn tại trong đặc tả HTML5 chuẩn).
+     *Cần Logic động: Việc kiểm tra hai trường có khớp nhau hay không đòi hỏi logic xử lý sự kiện (event handling) và so sánh giá trị tại thời điểm nhập liệu hoặc khi submit. Đây là nhiệm vụ của JavaScript (sử dụng hàm setCustomValidity) hoặc kiểm tra ở phía Server-side.
+  
 # PHẦN C — PHÂN TÍCH & SUY LUẬN (20 điểm)
 ## Câu C1 (10đ) — Debug Form
 * 8 lỗi về validation, accessibility, và best practices
