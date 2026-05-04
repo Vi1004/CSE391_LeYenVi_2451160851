@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+</head>
+<body>
+
+    <header>
+        <h1>Thanh Toán Đơn Hàng</h1>
+    </header>
+
+    <main>
+        <!--Phần 1: Giỏ hàng-->
+        <section>
+            <h2>Giỏ hàng</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>iPhone 16 Pro</td>
+                        <td>25.990.000đ</td>
+                        <td>1</td>
+                        <td>25.990.000đ</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>AirPods Pro</td>
+                        <td>5.000.000đ</td>
+                        <td>2</td>
+                        <td>10.000.000đ</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Apple Watch</td>
+                        <td>8.000.000đ</td>
+                        <td>1</td>
+                        <td>8.000.000đ</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><strong>Tổng tiền:</strong></td>
+                        <!--BONUS: output-tổng tiền-->
+                        <td><output>43.990.000đ</output></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <form action="#" method="POST">
+            <!--BONUS: Datalist-Tìm kiếm sản phẩm-->
+            <section>
+                <label for="search">Tìm thêm sản phẩm:</label>
+                <input list="products" id="search" name="search" placeholder="Nhập tên sản phẩm">
+                <datalist id="products"> 
+                    <option value="iPhone 16 Pro">
+                    <option value="Chuột không dây">
+                    <option value="Samsung S24 Ultra">
+                    <option value="Tai nghe Bluetooth">
+                </datalist>
+            </section>
+
+            <section>
+                <h2>Phương thức thanh toán</h2>
+                <form action="#" method="POST"></form>
+                    <p>Chọn phương thức:</p>
+                    <label>
+                        <input type="radio" name="payment" value="cod" required> Tiền mặt (COD)
+                    </label>
+
+                    <label>
+                        <input type="radio" name="payment" value="bank" required> Chuyển khoản
+                    </label>
+
+                    <label>
+                        <input type="radio" name="payment" value="wallet" required> Ví điện tử
+                    </label>
+
+                <!--Mã giảm giá-->
+                <p>
+                    <label for="coupon">Mã giảm giá:</label>
+                    <input type="text" id="coupon" name="coupon" 
+                           pattern="SALE[0-9]{4}" 
+                           placeholder="VD: SALE2026"
+                           title="Mã giảm giá phải bắt đầu bằng SALE và 4 chữ số">
+                </p>
+
+                <p>
+                    <label for="note">Ghi chú:</label><br>
+                    <textarea id="note" name="note" rows="3" cols="50" placeholder="Nhập ghi chú"></textarea>
+                </p>
+            </section>
+
+            <!--Phần 3: Thông tin giao hàng-->
+            <fieldset>
+                <legend>Thông tin giao hàng</legend>
+                <p>
+                    <label for="delivery-date">Ngày giao hàng:</label>
+                    <input type="date" id="delivery-date" name="delivery-date" min="2026-04-30" required>
+                </p>
+
+                <!--Khung giờ-->
+                <p>
+                    <label for="time-slot">Khung giờ giao:</label>
+                    <select id="time-slot" name="time-slot">
+                        <option value="morning">Sáng 8-12h</option>
+                        <option value="afternoon">Chiều 14-18h</option>
+                        <option value="evening">Tối 18-21h</option>
+                    </select>
+                </p>
+
+                <!--Thời gian giao hàng-->
+                <p>
+                    <label for="days">Thời gian chờ tối đa (1-7 ngày):</label>
+                    <input type="range" id="days" name="days" min="1" max="7" step="1" value="3">
+                </p>
+
+            </fieldset>
+
+            <!--BONUS: Điểm tích lũy-->
+            <p>
+                Điểm tích lũy: <progress value="60" max="100"></progress>
+            </p>
+
+            <!--Submit button-->
+            <button type="submit" aria-label="Xác nhận đặt hàng">
+                Đặt hàng
+            </button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ShopTLU</p>
+    </footer>
+
+</body>
+</html>
