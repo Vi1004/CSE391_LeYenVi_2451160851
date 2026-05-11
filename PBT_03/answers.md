@@ -103,3 +103,65 @@ Vì dấu > chọn các thẻ p là con trực tiếp của article.
 ***Nâng cao**
 Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px, khoảng cách = 40px + (-10px) = 30px
 (Khi có margin âm trong việc gộp lề, công thức là: giá trị dương lớn nhất + giá trị âm nhỏ nhất.
+
+## Câu A4 (5đ) — Specificity (Độ ưu tiên)
+### 1. Tính specificity score (a,b,c)
+- Quy ước:
+  + a (ID): Các lựa chọn dùng #id.
+  + b (class/ attribute/ pseudo-class): Các lựa chọn dùng .class, [type], :hover.
+  + c (element): Các lựa chọn dùng thẻ như p, div, h1.
+* **Rule A**
+```
+p { color: black; }
+```
+-> Specificity: (0, 0, 1)
+
+* **Rule B**
+```
+.price { color: blue; }
+```
+-> Specificity: (0, 1, 0)
+
+* **Rule C**
+```
+#main-price { color: red; }
+```
+-> Specificity: (1, 0, 0)
+
+* **Rule D**
+```
+p.price { color: green; }
+```
+-> Specificity: (0, 1, 1)
+
+### 2. Element sẽ có màu gì?
+* Element sẽ có màu đỏ
+* Giải thích: Vì ID có độ ưu tiên cao nhất mà rule C có ID nên element sẽ có màu đỏ
+
+### 3. 
+* Nếu thêm <p class="price" id="main-price" style="color: orange;">, element có màu cam
+* Giải thích: Vì Inline Style có độ ưu tiên cao hơn cả ID Selector. Trong bộ chỉ số, nó nằm ở cột cao hơn cả ID: (1, 0, 0, 0)
+
+### 4. 
+* Nếu Rule A thêm !important, element có màu đen.
+* Giải thích: Vì `!important` có độ ưu tiên cao hơn cả ID và Inline, trừ khi có rule khác cũng dùng `!important` và có specificity cao hơn.
+
+# PHẦN B - THỰC HÀNH CODE (55 điểm)
+## Bài B1 (20đ) — Style trang Profile
+* Các loại selectors đã sử dụng:
+   * Element Selector: `body`, `header`, `nav`, `footer` (chọn trực tiếp)
+   * Class Selector: `.skills-table`, `.active` (chọn qua tên lớp có dấu chấm)
+   * Descendant Selector: `nav a`, `.skills-table th` (chọn thẻ nằm bên trong 1 thẻ khác)
+   * Pseudo-class Selector: `:hover`, `:nth-child(even)` (chọn trạng thái hoặc vị trí đặc biệt)
+   * Universal Selector: * (Áp dụng cho tất cả các phần tử trên trang)
+## Bài B2
+
+# PHẦN C — DEBUG & SUY LUẬN (20 điểm)
+## Câu C1 (10đ) — Debug CSS Layout
+### 1.Tính chiều rộng thực tế của sidebar và content (content-box!)
+* Sidebar: 300px(width) + 20px*2(padding) + 1px*2(border) = 342px
+* Content: 660px(width) + 30px*2(padding) + 1px*2(border) = 722px
+
+### 2. Giải thích tại sao layout bị vỡ
+Tổng chiều rộng thực tế của 2 khối là: 342px + 722px = 1046px
+Mà container chỉ rộng 960px. Vì 1064px > 960px, không gian không đủ để 2 khối nằm cùng 1 hàng, nên trình duyệt buộc phải đẩy khối nằm sau (.content) xuống dòng mới.
