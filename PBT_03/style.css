@@ -1,0 +1,88 @@
+/* RESET & TYPOGRAPHY (5đ) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Yêu cầu bắt buộc */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER & NAVIGATION (5đ) */
+header {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Gradient xanh chuyên nghiệp */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+nav {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Navigation Links */
+nav a {
+    text-decoration: none; /* Mặc định không gạch chân */
+    color: #1e3a8a;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ef4444; /* Đổi màu khi hover */
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+nav a.active {
+    background-color: #1e3a8a; /* Kiểu khác biệt cho link active */
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* TABLE STYLING (5đ) */
+.skills-table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse; /* Yêu cầu bắt buộc */
+    background: white;
+}
+
+.skills-table th, .skills-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Header row */
+.skills-table th {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+/* Zebra striping (Dòng chẵn đổi màu) */
+.skills-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover row */
+.skills-table tr:hover {
+    background-color: #dbeafe; /* Màu xanh nhạt khi di chuột vào */
+}
+
+/* FOOTER */
+footer {
+    background-color: #1e293b;
+    color: #cbd5e1; /* Text nhạt */
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
