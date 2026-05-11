@@ -1,11 +1,13 @@
 # PHẦN A - KIỂM TRA ĐỌC HIỂU (25 điểm)
 ## Câu A1 (5đ) — 3 Cách nhúng CSS
 Tài liệu tham chiếu `CCC_Frontend_2026/tuan_2_css_core/08_introduction_css.md`
+
 **1.Inline CSS (trong thẻ)**
 * VD: `<h1 style="color: red; font-size: 24px;">Xin chào</h1>`
 * Ưu điểm: Có độ ưu tiên cao nhất, tiện để test/debug, áp dụng nhanh cho 1 phần tử duy nhất mà không cần Selector.
 * Nhược điểm: Khó bảo trì, làm code HTML bị rối, không thể tái sử dụng style cho các thẻ khác, vi phạm nguyên tắc tách giao diện và nội dung.
-* Khi nào nên dùng: Khi cần debug nhanh hoặc dùng Javascript để thay đổi style trực tiếp
+* Khi nào nên dùng: Khi cần debug nhanh hoặc dùng Javascript để thay đổi style trực tiếp.
+  
 **2. Internal CSS (trong `<style>`)**
 * VD:
 ```
@@ -17,7 +19,8 @@ Tài liệu tham chiếu `CCC_Frontend_2026/tuan_2_css_core/08_introduction_css.
 ```
 * Ưu điểm: Tất cả style nằm trong 1 file HTML, không cần file CSS riêng, dễ quản lý hơn Inline đối với các trang web đơn lẻ.
 * Nhược điểm: Chỉ dùng được cho 1 trang, làm file HTML trở nên quá dài, không tái sử dụng cho nhiều file HTML.
-* Khi nào nên dùng: Làm Prototype nhann, các trang web đơn, dự án nhỏ'
+* Khi nào nên dùng: Làm Prototype nhanh, các trang web đơn, dự án nhỏ.
+
 **3. External CSS (file riêng)**
 * VD:
 ```HTML
@@ -34,8 +37,9 @@ h1 {
 * Nhược điểm: Cần thêm 1 yêu cầu HTML để tải file CSS về.
 * Khi nào nên dùng: Dự án thực tế và chuyên nghiệp, dự án lớn.
 **Câu hỏi thêm:** Nếu cùng 1 element có cả 3 cách CSS đồng thời áp dụng thì thứ tự ưu tiên là: 
-  Inline CSS -> Internal CSS -> External CSS
-  Giải thích:
+      Inline CSS -> Internal CSS -> External CSS
+
+*Giải thích:
   * CSS hoạt động theo nguyên tắc "Cascading" (Thác nước). Quy tắc nào đọc sau cùng sẽ ghi đè lên quy tắc trước đó, trừ khi có sự khác biệt về độ ưu tiên của Selector.
   * Style "gần" phần tử hơn -> mạnh hơn.
   * Inline nằm ngay trong thẻ -> ưu tiên cao nhất.
@@ -57,4 +61,45 @@ Vì dấu > chọn các thẻ p là con trực tiếp của article.
 **Ảnh screenshot:**
   <img width="1894" height="560" alt="image" src="https://github.com/user-attachments/assets/ce60b923-dd2b-41d2-953b-157470269c71" />
 
-  
+## Câu A3 (7đ) — Box Model — Tính toán kích thước
+Đọc chương 11 (Box Model). Tính kích thước thực tế (chiều rộng thực tế render trên browser) cho mỗi trường hợp sau:
+***TH1: content-box (mặc định)**
+```
+.box-1 {
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+```
+Ở chế độ này, `width` chỉ tính riêng cho phần nội dung (content), Các phần khác sẽ cộng dồn vào.
+→ Chiều rộng hiển thị (tính từ mép ngoài của border bên trái đến mép ngoài của border bên phải) 
+= width + paddingx2 + borderx2 = 400px + 20px*2 + 5px*2 = 450px
+→ Không gian chiếm trên trang = visible + margin*2 = 450px + 10px*2 = 470px
+
+***TH2: border-box**
+```
+.box-2 {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+```
+Ở chế độ này, `width` là con số cuối cùng. Padding và Border sẽ lẩn vào bên trong.
+→ Chiều rộng hiển thị = width = 400px
+→ Kích thước content thực tế = width - paddingx2 - borderx2 = 400px - (20px*2) - (5px*2) = 350px
+→ Không gian chiếm trên trang = visible + margin*2 = 400px + 10px*2 = 420px
+
+***TH3: Margin collapse**
+```
+.box-a { margin-bottom: 25px; }
+.box-b { margin-top: 40px; }
+```
+→ Khoảng cách giữa box-a và box-b = 40px
+→ Giải thích tại sao KHÔNG PHẢI 65px: Trong CSS, khi hai lề dọc (top và bottom) của hai khối chồng lên nhau tiếp xúc với nhau, chúng sẽ xảy ra hiện tượng "Margin Collapse". Thay vì cộng dồn, trình duyệt sẽ so sánh và chọn giá trị lớn nhất để làm khoảng cách chung. Do đó, 40px > 25px, nên khoảng cách là 40px.
+
+***Nâng cao**
+Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px, khoảng cách = 40px + (-10px) = 30px
+(Khi có margin âm trong việc gộp lề, công thức là: giá trị dương lớn nhất + giá trị âm nhỏ nhất.
