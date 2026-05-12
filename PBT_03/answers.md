@@ -154,8 +154,41 @@ p.price { color: green; }
    * Descendant Selector: `nav a`, `.skills-table th` (chọn thẻ nằm bên trong 1 thẻ khác)
    * Pseudo-class Selector: `:hover`, `:nth-child(even)` (chọn trạng thái hoặc vị trí đặc biệt)
    * Universal Selector: * (Áp dụng cho tất cả các phần tử trên trang)
-## Bài B2
-
+## Bài B2 (20đ) — Box Model Lab
+* Phần 1 — Chứng minh content-box vs border-box (10đ):
+  * Hộp 1 (content-box): chiều rộng thực tế = 350px px (đo từ DevTools).
+    Cách tính: 300px(width) + 20*2(padding) + 5*2(border) = 350px
+  <img width="1913" height="970" alt="image" src="https://github.com/user-attachments/assets/e1e8f833-a2c5-4844-b202-409c3a1b0c25" />
+  * Hộp 2 (border-box): chiều rộng thực tế = 300px (đo từ DevTools)
+    Trình duyệt tự động co phần content lại còn 250px để tổng độ rộng luôn là 300px
+  <img width="1915" height="969" alt="image" src="https://github.com/user-attachments/assets/81ecc3c5-7184-45f8-a771-12f01b5e176a" />
+  * Giải thích sự khác biệt:
+    * Với content-box, width chỉ là kích thước của vùng chứa nội dung, không bao gồm padding và border.
+    * Với border-box, width là kích thước tổng thể bao gồm cả padding và border, giúp việc tính toán layout chính xác và dễ dàng hơn.
+* Phần 2 — Layout 3 cột (10đ):
+  * Nếu dùng border-box: Tổng chiều rộng 3 cột là 1000px (250px + 500px + 250px), vừa khít với container.
+  <img width="1913" height="975" alt="image" src="https://github.com/user-attachments/assets/5d4f8a97-6138-40c8-b9c1-cccb38aeefa4" />
+  * Nếu không dùng border-box: Tổng chiều rộng 3 cột là 1100px, vượt quá chiều rộng container (1000px) là 100px. Kết quả: cột bên phải sẽ bị đẩy xuống dòng dưới vì container chỉ rộng 1000px.
+  <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/be444377-3f87-4b96-ab89-b6a36d2bd385" />
+  * Giải thích: border-box giúp chúng ta giữ nguyên thiết kế ban đầu mà không cần bận tâm đến việc padding hay border làm thay đổi kích thước tổng thể của phần tử.
+## Bài B3 (15đ) — Specificity Battle
+**1. Liệt kê 10 rules + specificity score**
+  1. * -> (0,0,0) -> Gray
+  2. p -> (0,0,1) -> Silver
+  3. .text -> (0,1,0) -> Blue
+  4. p:first-child -> (0,1,1) -> Purple
+  5. .text.highlight -> (0,2,0) -> Green
+  6. #demo -> (1,0,0) -> Yellow
+  7. p#demo -> (1,0,1) -> Brown
+  8. #demo.text -> (1,1,0) -> Orange
+  9. #demo.text.highlight -> (1,2,0) -> Cyan
+  10. p#demo.text.highlight -> (1,2,1) -> Red
+**2. Element cuối cùng hiển thị màu gì? Tại sao?**
+* Cuối cùng hiển thị màu đỏ (Red).
+* Vì trình duyệt so sánh điểm từ trái sang phải (ID -> Class -> Element) mà rule cuối cùng có điểm cao nhất (1,2,1) nên cuối cùng hiển thị màu đỏ (red).
+**3. Chụp screenshot kết quả**
+**4. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.**
+  Thay đổi thứ tự rules trong CSS file thì kết quả không thay đổi. Vì trong CSS, độ ưu tiên (specificity) quan trọng hơn vị trí. Một selector có điểm cao ở trên đầu file vẫn sẽ thắng 1 selector điểm thấp ở cuối file. Thứ tự viết chỉ có tác dụng khi 2 selector có điểm Specificity bằng nhau.
 # PHẦN C — DEBUG & SUY LUẬN (20 điểm)
 ## Câu C1 (10đ) — Debug CSS Layout
 ### 1.Tính chiều rộng thực tế của sidebar và content (content-box!)
