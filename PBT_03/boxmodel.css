@@ -27,6 +27,7 @@
 .container-3col * {
     box-sizing: border-box;
     float: left;
+    height: 200px;
 }
 
 .sidebar-left {
