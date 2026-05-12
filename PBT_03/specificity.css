@@ -1,29 +1,29 @@
 /* 1. Universal Selector (Thấp nhất) */
-* { color: gray; }                        /* Score: (0,0,0) */
+* { color: gray; }                        /* Specificity: (0,0,0) */
 
 /* 2. Element Selector */
-p { color: silver; }                      /* Score: (0,0,1) */
+p { color: silver; }                      /* Specificity: (0,0,1) */
 
 /* 3. Class Selector */
-.text { color: blue; }                    /* Score: (0,1,0) */
+.text { color: blue; }                    /* Specificity: (0,1,0) */
 
 /* 4. Pseudo-class + Element */
-p:first-child { color: purple; }          /* Score: (0,1,1) - 1 Element, 1 Class-like */
+p:first-child { color: purple; }          /* Specificity: (0,1,1) - 1 Element, 1 Class-like */
 
 /* 5. Hai Class kết hợp */
-.text.highlight { color: green; }         /* Score: (0,2,0) */
+.text.highlight { color: green; }         /* Specificity: (0,2,0) */
 
 /* 6. ID Selector (Bắt đầu nặng ký) */
-#demo { color: yellow; }                  /* Score: (1,0,0) */
+#demo { color: yellow; }                  /* Specificity: (1,0,0) */
 
 /* 7. ID + Element */
-p#demo { color: brown; }                  /* Score: (1,0,1) */
+p#demo { color: brown; }                  /* Specificity: (1,0,1) */
 
 /* 8. ID + Class */
-#demo.text { color: orange; }              /* Score: (1,1,0) */
+#demo.text { color: orange; }              /* Specificity: (1,1,0) */
 
 /* 9. ID + 2 Class */
-#demo.text.highlight { color: cyan; }     /* Score: (1,2,0) */
+#demo.text.highlight { color: cyan; }     /* Specificity: (1,2,0) */
 
 /* 10. ID + 2 Class + Element (Mạnh nhất trong file CSS) */
-p#demo.text.highlight { color: red; }      /* Score: (1,2,1) */
+p#demo.text.highlight { color: red; }      /* Specificity: (1,2,1) */
