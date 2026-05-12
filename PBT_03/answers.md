@@ -187,6 +187,8 @@ p.price { color: green; }
 * Cuối cùng hiển thị màu đỏ (Red).
 * Vì trình duyệt so sánh điểm từ trái sang phải (ID -> Class -> Element) mà rule cuối cùng có điểm cao nhất (1,2,1) nên cuối cùng hiển thị màu đỏ (red).
 **3. Chụp screenshot kết quả**
+  <img width="1919" height="965" alt="image" src="https://github.com/user-attachments/assets/82974514-7ec2-49b5-8d96-629bacf715f4" />
+
 **4. Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.**
   Thay đổi thứ tự rules trong CSS file thì kết quả không thay đổi. Vì trong CSS, độ ưu tiên (specificity) quan trọng hơn vị trí. Một selector có điểm cao ở trên đầu file vẫn sẽ thắng 1 selector điểm thấp ở cuối file. Thứ tự viết chỉ có tác dụng khi 2 selector có điểm Specificity bằng nhau.
 # PHẦN C — DEBUG & SUY LUẬN (20 điểm)
