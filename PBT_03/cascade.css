@@ -1,0 +1,16 @@
+/* --- CODE GỐC THEO ĐỀ BÀI --- */
+body { font-size: 16px; color: #333; }
+.container { font-size: 14px; }
+.card { color: blue; }
+.card .title { font-size: 20px; }
+.card p { color: inherit; }
+#featured .title { color: red; }
+.highlight { color: green !important; }
+
+/* --- Bổ sung viền để trực quan hóa cấu trúc khi xem --- */
+.card {
+    border: 1px dashed #bbb;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+}
