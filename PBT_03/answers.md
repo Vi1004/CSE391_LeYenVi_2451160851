@@ -200,3 +200,24 @@ p.price { color: green; }
 ### 2. Giải thích tại sao layout bị vỡ
 Tổng chiều rộng thực tế của 2 khối là: 342px + 722px = 1046px
 Mà container chỉ rộng 960px. Vì 1064px > 960px, không gian không đủ để 2 khối nằm cùng 1 hàng, nên trình duyệt buộc phải đẩy khối nằm sau (.content) xuống dòng mới.
+
+### 3. Hai cách sửa 
+**Cách 1: Sử dụng border-box**
+Thay đổi cách tính Box Model. Khi bật border-box, width khai báo sẽ là chiều rộng cuối cùng gồm cả padding và border. Trình duyệt tự động bóp nhỏ phần ruột (content-box) lại. Vì tổng width của sidebar (300px) + content (660px) đúng bằng 960px nên chúng sẽ vừa khít cạnh nhau.
+**Cách 2: Không dùng border-box**
+Giữ nguyên content-bõ và trừ bớt phần padding và border ra khỏi width ban đầu để tổng chiều rộng vừa khít 960px
+ * width mới Sidebar: 300px - 40px (padding) -2px (border) = 258px
+ * width mới Content: 660px - 60px(padding) - 2px (border) = 598px
+
+## Câu C2 (10đ) — Cascade Puzzle
+### 1. "Sản phẩm A" (h2) có:
+* font-size = 20px
+  Vì trình duyệt tìm thấy selector .card .title nhắm trực tiếp vào phần tử này. Độ đặc hiệu của nó là 10 (class) + 10 (class) = 20 điểm. Mặc dù nó nằm trong .container (font-size: 14px), nhưng thuộc tính được chỉ định trực tiếp được ưu tiên hơn thuộc tính kế thừa từ cha.
+* color = green. Vì lớp .highlight sử dụng !important.
+### 2. "Mô tả sản phẩm" (p trong card featured) có:
+color = blue. Vì thẻ p kế thừa (inherit) lại màu blue từ cha.
+### 3. Sản phẩm B" (h2) có:
+* font-size = 20px
+* color = blue. Vì kế thừa màu từ cha là .card (color: blue).
+### 4. "Mô tả sản phẩm B" (p.highlight) có:
+color = green. Vì p.highlight có sử dụng !important.
