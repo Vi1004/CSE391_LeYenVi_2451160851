@@ -221,3 +221,6 @@ color = blue. Vì thẻ p kế thừa (inherit) lại màu blue từ cha.
 * color = blue. Vì kế thừa màu từ cha là .card (color: blue).
 ### 4. "Mô tả sản phẩm B" (p.highlight) có:
 color = green. Vì p.highlight có sử dụng !important.
+
+*Ảnh screenshot:
+<img width="1030" height="592" alt="Screenshot 2026-05-16 235643" src="https://github.com/user-attachments/assets/df521a0b-25a6-4675-ac49-135fe8950ae1" />
