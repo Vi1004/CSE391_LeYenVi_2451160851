@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug CSS Layout</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+
+    <h2>CÁCH 1: Sửa bằng border-box (Bật class .fix-border-box ở container)</h2>
+    <div class="container fix-border-box">
+        <div class="sidebar">Sidebar (Border-box)</div>
+        <div class="content">Content (Border-box)</div>
+        <div class="clearfix"></div>
+    </div>
+
+    <br><hr><br>
+
+    <h2>CÁCH 2: Sửa thủ công content-box (Bật class .fix-manual ở các con)</h2>
+    <div class="container">
+        <div class="sidebar fix-manual-sidebar">Sidebar (Thủ công)</div>
+        <div class="content fix-manual-content">Content (Thủ công)</div>
+        <div class="clearfix"></div>
+    </div>
+
+</body>
+</html>

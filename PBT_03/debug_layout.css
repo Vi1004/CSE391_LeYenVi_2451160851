@@ -1,0 +1,49 @@
+/* --- CODE GỐC BỊ VỠ --- */
+.container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ff4d4d; /* Đổi màu đỏ cho dễ nhìn */
+    float: left;
+    background-color: #ffcccc;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #33cc33; /* Đổi màu xanh cho dễ nhìn */
+    float: left;
+    background-color: #ccffcc;
+}
+
+/* Clearfix để container không bị sụp đổ chiều cao do float */
+.clearfix {
+    clear: both;
+}
+
+
+/* ==========================================
+   CÁCH 1: SỬA BẰNG BORDER-BOX 
+   ========================================== */
+.fix-border-box, 
+.fix-border-box *, 
+.fix-border-box *::before, 
+.fix-border-box *::after {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   CÁCH 2: SỬA THỦ CÔNG (TÍNH LẠI WIDTH)
+   ========================================== */
+/* Kích thước mới = Kích thước mong muốn - (Padding + Border) */
+.fix-manual-sidebar {
+    width: 258px; /* 300 - 40 - 2 */
+}
+
+.fix-manual-content {
+    width: 598px; /* 660 - 60 - 2 */
+}
