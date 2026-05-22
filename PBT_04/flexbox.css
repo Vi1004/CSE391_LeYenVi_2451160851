@@ -1,0 +1,179 @@
+/* Reset CSS cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Container bọc nội dung */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* ==========================================================================
+   PHẦN 1: NAVBAR (Yêu cầu: Logo trái - Menu giữa - Auth phải, căn giữa dọc)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Đẩy 3 khối chính về 3 góc trái - giữa - phải */
+    align-items: center;            /* Căn giữa hoàn hảo theo chiều dọc */
+    background-color: #ffffff;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3498db;
+    cursor: pointer;
+}
+
+/* Khối Menu nằm chính giữa */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Cách đều các item trong menu */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi hover menu: đổi màu + underline */
+.nav-menu a:hover {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Khối Đăng nhập / Đăng ký nằm bên phải */
+.nav-auth {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-auth button {
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 1px solid #3498db;
+    color: #3498db;
+}
+
+.btn-login:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.btn-register {
+    background-color: #3498db;
+    border: none;
+    color: #ffffff;
+}
+
+.btn-register:hover {
+    background-color: #2980b9;
+}
+
+/* ==========================================================================
+   PHẦN 2: PRODUCT CARDS GRID (Yêu cầu: flex-wrap, 4 cột tính toán calc, 8 cards)
+   ========================================================================== */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các card rớt hàng khi hết không gian */
+    gap: 20px;       /* Khoảng cách giữa các card */
+}
+
+/* Định dạng từng Card (4 cột, trừ đi khoảng trống gap) */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Xếp dọc các thành phần bên trong card */
+    flex: 0 0 calc(25% - 15px); /* Tính toán chuẩn xác độ rộng 4 cột đều nhau */
+    
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease; /* Tạo hiệu ứng mượt khi hover */
+}
+
+/* Hiệu ứng Hover Card: nhấc lên nhẹ và tăng bóng đổ */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+}
+
+/* Thành phần 1: Ảnh sản phẩm (Phía trên) */
+.product-image {
+    background-color: #f8f9fa;
+    font-size: 45px;
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Thành phần 2: Thông tin Tên + Giá (Ở giữa) */
+.product-info {
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 15px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Thành phần 3: Nút Mua (Dưới cùng - LUÔN DÍNH ĐÁY CARD) */
+.btn-buy {
+    margin-top: auto; /* Chiêu thức Flexbox cốt lõi đẩy nút này xuống kịch đáy card */
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.btn-buy:hover {
+    background-color: #27ae60;
+}

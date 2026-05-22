@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Grid Layout</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+
+    <div class="grid-container">
+        
+        <header class="header">
+            <div class="logo">🛍️ MegaShop</div>
+            <div class="search-bar"><input type="text" placeholder="Tìm kiếm sản phẩm..."></div>
+            <div class="cart">Giỏ hàng (0)</div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="hero-text">
+                <h1>SIÊU SALE ĐÓN HÈ!</h1>
+                <p>Giảm giá lên đến 50% cho tất cả các mặt hàng công nghệ mới nhất.</p>
+                <button class="btn-shop">Mua ngay</button>
+            </div>
+            <div class="featured-card">
+                <span class="hot-tag">NỔI BẬT</span>
+                <div class="feat-img">💻</div>
+                <h3>MacBook Pro M4 Max</h3>
+                <p class="feat-price">69.990.000 đ</p>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <h3>Bộ lọc sản phẩm</h3>
+            <div class="filter-group">
+                <h4>Danh mục</h4>
+                <label><input type="checkbox" checked> Điện thoại</label>
+                <label><input type="checkbox"> Laptop</label>
+                <label><input type="checkbox"> Phụ kiện</label>
+            </div>
+            <div class="filter-group">
+                <h4>Khoảng giá</h4>
+                <label><input type="checkbox"> Dưới 5 triệu</label>
+                <label><input type="checkbox"> 5 - 15 triệu</label>
+                <label><input type="checkbox"> Trên 15 triệu</label>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h2 class="title">Sản phẩm mới nhất</h2>
+            
+            <div class="products-grid">
+                <div class="card">
+                    <div class="card-img">📱</div>
+                    <h4>iPhone 15 Pro</h4>
+                    <p class="price">24.990.000 đ</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">🎧</div>
+                    <h4>AirPods Pro 2</h4>
+                    <p class="price">5.990.000 đ</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">⌚</div>
+                    <h4>Apple Watch S9</h4>
+                    <p class="price">9.490.000 đ</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">📺</div>
+                    <h4>iPad Air 6</h4>
+                    <p class="price">16.990.000 đ</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">⌨️</div>
+                    <h4>Bàn phím cơ Cơ</h4>
+                    <p class="price">1.250.000 đ</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">🖱️</div>
+                    <h4>Chuột Gaming không dây</h4>
+                    <p class="price">890.000 đ</p>
+                </div>
+            </div>
+        </main>
+
+        <aside class="ads">
+            <div class="ads-wrapper">
+                <h3>Quảng cáo</h3>
+                <div class="ads-banner">
+                    <span>BANNER PLACEHOLDER</span>
+                </div>
+                <div class="ads-banner sale">
+                    <span>GIẢM 10% SHIP HỎA TỐC</span>
+                </div>
+            </div>
+        </aside>
+
+        <footer class="footer">
+            <p>© 2026 MegaShop E-Commerce Project. All rights reserved.</p>
+            <p>Thiết kế bởi: Lê Yến Vi - CSE391</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
