@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <!-- Fixed Header -->
+    <header class="main-header">
+        <div class="logo">MyLogo</div>
+        <nav class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Sticky Sidebar -->
+        <aside class="sticky-sidebar">
+            <h3>Danh mục</h3>
+            <ul>
+                <li><a href="#">Điện thoại</a></li>
+                <li><a href="#">Máy tính bảng</a></li>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Phụ kiện</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2>Sản phẩm nổi bật</h2>
+            
+            <div class="product-grid">
+                <!-- Product Card với Badge HOT -->
+                <div class="product-card">
+                    <span class="badge-hot">HOT</span>
+                    <div class="product-image">📦</div>
+                    <div class="product-info">
+                        <h4>iPhone 15 Pro Max</h4>
+                        <p class="price">29.990.000 đ</p>
+                    </div>
+                </div>
+
+                <!-- Các card phụ để làm đầy giao diện -->
+                <div class="product-card">
+                    <div class="product-image">📦</div>
+                    <div class="product-info">
+                        <h4>iPad Air 5</h4>
+                        <p class="price">14.500.000 đ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đoạn văn bản dài để tạo scrollbar cho việc test fixed/sticky -->
+            <div class="scroll-filler">
+                <h3>Cuộn xuống để kiểm tra tính năng Scroll</h3>
+                <p>Nội dung này được thêm vào để tạo chiều dài cho trang web...</p>
+                <p>Khi bạn cuộn chuột xuống:</p>
+                <ul>
+                    <li><strong>Header</strong> sẽ luôn cố định ở mép trên cùng của màn hình.</li>
+                    <li><strong>Sidebar</strong> bên trái sẽ trượt xuống và dừng lại (dính) cách mép trên 80px.</li>
+                    <li><strong>Nút ↑ (Scroll to top)</strong> ở góc dưới bên phải sẽ luôn lộ diện.</li>
+                </ul>
+                <!-- Lặp lại text tạo độ dài -->
+                <p style="margin-top: 400px;">Tiếp tục cuộn xuống...</p>
+                <p style="margin-top: 400px;">Bạn đã cuộn xuống cuối trang! Hãy chú ý các thành phần fixed và sticky vẫn đang hoạt động đúng vị trí.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+
+</body>
+</html>
