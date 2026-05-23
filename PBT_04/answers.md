@@ -139,21 +139,26 @@ Bố cục:
 → các nút bị lệch hàng. 
 - Code sửa:
 ```
-.card-container { display: flex; flex-wrap: wrap; }
-.card { 
-    width: 30%; 
-    margin: 1.5%; 
-    /* SỬA TẠI ĐÂY */
+.card-container {
     display: flex;
-    flex-direction: column; 
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.card img { width: 100%; }
-.card h3 { font-size: 18px; }
 
-.card .btn { 
-    padding: 10px; 
-    /* SỬA TẠI ĐÂY: Đẩy nút luôn bám chặt vào đáy card */
-    margin-top: auto; 
+.card {
+    width: 30%;
+
+    border: 1px solid #ccc;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card .btn {
+    padding: 10px;
+
+    margin-top: auto;
 }
 ```
 * **Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên**
