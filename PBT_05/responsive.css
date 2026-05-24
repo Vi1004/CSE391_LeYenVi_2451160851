@@ -1,0 +1,76 @@
+/* ==========================================================================
+   1. BASE STYLES & MOBILE FIRST (Mặc định cho màn hình < 768px)
+   ========================================================================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; background: #f7f9fa; color: #333; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header & Nav Mobile */
+.header { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #1a202c; color: white; }
+.nav-links { display: none; } /* Ẩn menu chữ trên mobile */
+.hamburger { display: block; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+/* Layout Main Container Mobile */
+.main-container { display: flex; flex-direction: column; padding: 15px; gap: 15px; }
+
+/* Ẩn bớt sidebar lọc chi tiết và quảng cáo trên mobile */
+.sidebar { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.filter-list { display: none; } /* Giấu bộ lọc dài */
+.filter-dropdown { display: block; width: 100%; padding: 8px; margin-top: 10px; }
+.ads-bar { display: none; } /* Ẩn hẳn thanh quảng cáo */
+
+/* Product Grid 1 cột trên Mobile */
+.product-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+.card-img-container { overflow: hidden; }
+.card-body { padding: 15px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+.card-title { font-size: 16px; font-weight: 600; }
+.card-price { color: #e53e3e; font-weight: bold; }
+.btn-buy { background: #3182ce; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; margin-top: auto; }
+
+.footer { background: #2d3748; color: #a0aec0; text-align: center; padding: 20px; font-size: 12px; margin-top: 30px; }
+
+/* ==========================================================================
+   2. TABLET BREAKPOINT (≥ 768px đến 1023px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    body { font-size: 15px; }
+    
+    /* Hiện menu chữ ngang, ẩn nút hamburger */
+    .hamburger { display: none; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: white; text-decoration: none; }
+
+    /* Layout thay đổi: Sidebar xếp ngang trên Grid sản phẩm */
+    .main-container { flex-direction: column; }
+    .sidebar { display: flex; align-items: center; justify-content: space-between; }
+    .sidebar h3 { font-size: 16px; }
+    .filter-dropdown { width: auto; margin-top: 0; }
+    
+    /* Grid 2 cột sản phẩm */
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==========================================================================
+   3. DESKTOP BREAKPOINT (≥ 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    body { font-size: 16px; }
+    
+    /* Layout chia 3 phần rõ rệt nằm ngang nhau */
+    .main-container { display: grid; grid-template-columns: 240px 1fr 200px; gap: 20px; align-items: start; max-width: 1200px; margin: 0 auto; }
+    
+    /* Sidebar trả về dạng cột đứng dọc đầy đủ */
+    .sidebar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .filter-dropdown { display: none; } /* Ẩn dropdown */
+    .filter-list { display: block; list-style: none; margin-top: 10px; }
+    .filter-list li { margin-bottom: 8px; }
+
+    /* Grid 4 cột tinh tế */
+    .product-grid { grid-template-columns: repeat(4, 1fr); }
+    
+    /* Hiện thanh quảng cáo phụ bên phải */
+    .ads-bar { display: flex; flex-direction: column; gap: 15px; }
+    .ads-box { background: #feebc8; border: 1px dashed #dd6b20; padding: 20px; text-align: center; border-radius: 8px; font-size: 14px; min-height: 150px; display: flex; align-items: center; justify-content: center; }
+}

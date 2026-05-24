@@ -1,0 +1,57 @@
+.card {
+    background: white;
+    border-radius: $radius-md;
+    overflow: hidden;
+    @include card-shadow;
+    display: flex;
+    flex-direction: column;
+
+    .card-img-container {
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .card-body {
+        padding: $spacing-md;
+        
+        .card-title {
+            font-size: 16px;
+            color: $text-dark;
+        }
+        
+        .card-price {
+            color: #e53e3e;
+            font-weight: bold;
+            margin: $spacing-sm 0;
+        }
+    }
+
+    // Viết lồng hovers sử dụng & parent
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        
+        .card-img-container img {
+            transform: scale(1.08);
+        }
+    }
+}
+
+.btn-buy {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $secondary-color;
+        transform: scale(1.02);
+    }
+}

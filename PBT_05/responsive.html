@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Product Page</title>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">ShopBrand</div>
+        <button class="hamburger">☰</button>
+        <nav class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Bộ lọc sản phẩm</h3>
+            <select class="filter-dropdown">
+                <option>Tất cả sản phẩm</option>
+                <option>Giá từ thấp đến cao</option>
+                <option>Giá từ cao đến thấp</option>
+            </select>
+            <ul class="filter-list">
+                <li><input type="checkbox"> Điện thoại</li>
+                <li><input type="checkbox"> Laptop</li>
+                <li><input type="checkbox"> Phụ kiện</li>
+            </ul>
+        </aside>
+
+        <main class="product-grid">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://picsum.photos/300/300?random=1" alt="Sản phẩm" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Sản phẩm Premium 01</h3>
+                    <p class="card-price">25.990.000đ</p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=2" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 02</h3><p class="card-price">12.490.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=3" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 03</h3><p class="card-price">4.500.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=4" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 04</h3><p class="card-price">18.990.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=5" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 05</h3><p class="card-price">1.200.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=6" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 06</h3><p class="card-price">32.000.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=7" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 07</h3><p class="card-price">9.990.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+            <div class="card"><div class="card-img-container"><img src="https://picsum.photos/300/300?random=8" alt="Sản phẩm"></div><div class="card-body"><h3 class="card-title">Sản phẩm Premium 08</h3><p class="card-price">15.500.000đ</p><button class="btn-buy">Mua ngay</button></div></div>
+        </main>
+
+        <aside class="ads-bar">
+            <div class="ads-box">Quảng cáo Banner 1</div>
+            <div class="ads-box">Quảng cáo Banner 2</div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Toàn bộ quyền được bảo lưu.</p>
+    </footer>
+
+</body>
+</html>
