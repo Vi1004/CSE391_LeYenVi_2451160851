@@ -87,3 +87,171 @@ SCSS → CSS
   -Webpack/Vite
 
 # PHẦN C — PHÂN TÍCH (20 điểm)
+## Câu C1 (10đ) — Phân tích trang web thực
+- Chọn website: YouTube
+1. Mobile (375px)
+- Navigation
+    - Thanh menu chuyển thành icon hamburger ☰
+    - Sidebar bị ẩn mặc định
+    - Chỉ còn các icon chính: Home, Shorts, Subscriptions
+- Lưới content
+    - Video hiển thị 1 cột
+- Elements bị ẩn
+    - Sidebar đầy đủ
+    - Một số text menu
+    - Category bar rút gọn
+- Font size
+    - Font nhỏ hơn desktop
+    - Khoảng cách giữa các phần tử giảm
+2. Tablet (768px)
+- Navigation
+    - Sidebar thu gọn
+    - Thanh tìm kiếm vẫn hiển thị
+- Lưới content
+    - Khoảng 2–3 cột video
+- Elements bị ẩn
+    - Sidebar không hiển thị đầy đủ text
+- Font size
+    - Lớn hơn mobile một chút
+3. Desktop (1440px)
+- Navigation
+    - Sidebar đầy đủ
+    - Thanh menu ngang đầy đủ chức năng
+- Lưới content
+    - 4–6 cột video tùy kích thước màn hình
+- Elements hiển thị thêm
+    - Sidebar đầy đủ category
+    - Video recommendations nhiều hơn
+    - Nhiều thông tin metadata hơn
+- Font size
+    - Font lớn và dễ đọc hơn
+## Câu C2 (10đ) — Thiết kế Responsive Strategy
+### 1. Wireframe Mobile (<768px)
+```
+┌──────────────────┐
+│ LOGO + ☰         │
+├──────────────────┤
+│ HERO IMAGE       │
+├──────────────────┤
+│ BOOKING FORM     │
+├──────────────────┤
+│ FOOD GRID        │
+│ 1 CỘT            │
+├──────────────────┤
+│ GOOGLE MAP       │
+├──────────────────┤
+│ FOOTER           │
+└──────────────────┘
+```
+- Mobile Strategy
+    - Sidebar: KHÔNG có
+    - Menu chuyển thành hamburger
+    - Grid ảnh: 1 cột
+    - Form đặt bàn nằm trên map
+    - Một số text phụ bị ẩn
+### 2. Wireframe Tablet (768px)
+```
+┌──────────────────────────┐
+│ LOGO + NAVIGATION        │
+├──────────────────────────┤
+│ HERO IMAGE               │
+├──────────────────────────┤
+│ FOOD GRID (2 CỘT)        │
+├─────────────┬────────────┤
+│ BOOKING     │ GOOGLE MAP │
+│ FORM        │            │
+├─────────────┴────────────┤
+│ FOOTER                   │
+└──────────────────────────┘
+```
+- Tablet Strategy
+    - Grid ảnh: 2 cột
+    - Form và map đặt cạnh nhau
+    - Navigation hiện đầy đủ hơn
+### 3. Wireframe Desktop (≥1024px)
+```
+┌────────────────────────────────────┐
+│ LOGO + NAVIGATION + PHONE         │
+├────────────────────────────────────┤
+│ HERO IMAGE FULL WIDTH             │
+├──────────────┬────────────────────┤
+│ SIDEBAR      │ FOOD GRID 3 CỘT    │
+│ SPECIALS     │                    │
+├──────────────┴────────────────────┤
+│ FORM + MAP (2 CỘT)                │
+├────────────────────────────────────┤
+│ FOOTER                            │
+└────────────────────────────────────┘
+```
+- Desktop Strategy
+    - Có sidebar specials/menu
+    - Food gallery: 3 cột
+    - Layout rộng nhiều cột
+    - Navigation đầy đủ
+### CSS Skeleton — Mobile First
+```
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FOOD GRID */
+
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* BOOKING + MAP */
+
+.booking-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+
+    .main-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 24px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+```
