@@ -160,4 +160,4 @@ Item 5
   - Giải thích:
       - var có function scope.
       - let có block scope.
-      - Mỗi vòng lặp tạo một biến i riêng nên giữ được giá trị đúng.   
+      - Mỗi vòng lặp tạo một biến i riêng nên giữ được giá trị đúng.  
