@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallel Multi-API Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dash-header">
+            <h1>📊 Central Control Dashboard</h1>
+            <div class="header-actions">
+                <span id="loadTime">Chưa nạp dữ liệu</span>
+                <button id="refreshBtn">🔄 Refresh All</button>
+            </div>
+        </header>
+
+        <main class="dash-grid">
+            <div class="widget" id="widget-0">
+                <h2>👥 Thành Viên Hệ Thống</h2>
+                <div class="widget-content"></div>
+            </div>
+            <div class="widget" id="widget-1">
+                <h2>🌦️ Thời Tiết Thủ Đô</h2>
+                <div class="widget-content"></div>
+            </div>
+            <div class="widget" id="widget-2">
+                <h2>🌏 Thông Tin Quốc Gia</h2>
+                <div class="widget-content"></div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
