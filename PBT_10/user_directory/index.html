@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD User Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👥 Quản Lý Danh Sách Thành Viên (CRUD)</h1>
+        
+        <div class="top-bar">
+            <input type="text" id="searchUser" placeholder="Tìm kiếm theo tên hoặc email...">
+            <button id="openAddModalBtn">➕ Thêm thành viên</button>
+        </div>
+
+        <div id="alertBox"></div>
+
+        <main id="userContainer">
+            </main>
+    </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Thêm Thành Viên Mới</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label>Họ tên</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <button type="submit" id="saveBtn">Lưu lại</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
