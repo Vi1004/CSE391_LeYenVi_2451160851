@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Navigation & Accessibility App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <p class="instruction">💡 Bấm <kbd>Tab</kbd> để di chuyển, <kbd>Ctrl + K</kbd> để mở Command Palette, <kbd>←</kbd> <kbd>→</kbd> để chuyển ảnh.</p>
+
+    <section class="gallery-section" aria-label="Thư viện ảnh tương tác">
+        <h2>📸 Gallery Ảnh (Phím mũi tên & Số 1-3)</h2>
+        <div class="gallery-container">
+            <div class="main-slide">
+                <img id="currentImg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" alt="Cảnh thiên nhiên núi non vĩ đại (Ảnh 1)">
+                <div id="slideshowBadge" class="badge">Slideshow: OFF</div>
+            </div>
+            <div class="thumbnails">
+                <button class="thumb active" data-index="0" aria-label="Xem ảnh 1: Thung lũng">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=100" alt="Thumbnail 1">
+                </button>
+                <button class="thumb" data-index="1" aria-label="Xem ảnh 2: Biển chiều">
+                    <img src="https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?w=100" alt="Thumbnail 2">
+                </button>
+                <button class="thumb" data-index="2" aria-label="Xem ảnh 3: Rừng thông">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=100" alt="Thumbnail 3">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="commandPalette" class="palette-overlay" role="dialog" aria-modal="true" aria-label="Hộp lệnh nhanh" aria-hidden="true">
+        <div class="palette-content">
+            <input type="text" id="paletteInput" placeholder="Gõ lệnh (ví dụ: 'dark', 'light', 'next', 'play')..." aria-label="Nhập lệnh tìm kiếm">
+            <ul id="commandList" role="listbox" aria-label="Danh sách lệnh gợi ý">
+                <li role="option" data-cmd="theme-dark" class="selected">🌙 Switch to Dark Mode</li>
+                <li role="option" data-cmd="theme-light">☀️ Switch to Light Mode</li>
+                <li role="option" data-cmd="img-next">➡️ Next Image</li>
+                <li role="option" data-cmd="img-prev">⬅️ Previous Image</li>
+                <li role="option" data-cmd="slideshow-toggle">🔄 Toggle Autoplay Slideshow</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
