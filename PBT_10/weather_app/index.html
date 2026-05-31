@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="weather-box">
+        <h2>🌦️ Dự Báo Thời Tiết</h2>
+        <div class="search-group">
+            <input type="text" id="cityInput" placeholder="Nhập tên thành phố (ví dụ: Hanoi)...">
+            <button id="searchBtn">Tìm</button>
+        </div>
+
+        <div class="history-section">
+            <p>Lịch sử tìm kiếm:</p>
+            <div id="historyContainer" class="history-container"></div>
+        </div>
+
+        <hr>
+
+        <div id="weatherDisplay">
+            <div class="empty-state">Vui lòng nhập tên thành phố để xem thời tiết.</div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
