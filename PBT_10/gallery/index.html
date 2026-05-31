@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Scroll Gallery & Lazy Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-wrapper">
+        <h1>🖼️ Thư Viện Ảnh Cuộn Vô Hạn</h1>
+        <div class="grid-gallery" id="imageGrid"></div>
+        
+        <div id="load-trigger" class="trigger-loading">⏳ Đang tải thêm ảnh mới...</div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightboxImg" src="" alt="Ảnh phóng to">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

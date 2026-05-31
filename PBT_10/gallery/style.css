@@ -1,0 +1,17 @@
+body { font-family: system-ui, sans-serif; background: #111827; color: white; margin: 0; padding: 20px; }
+h1 { text-align: center; margin-bottom: 35px; color: #f3f4f6; }
+.grid-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+
+/* Responsive theo đúng yêu cầu đề bài */
+@media (max-width: 1024px) { .grid-gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid-gallery { grid-template-columns: repeat(1, 1fr); } }
+
+.img-card { background: #1f2937; border-radius: 8px; overflow: hidden; height: 250px; cursor: pointer; border: 1px solid #374151; transition: transform 0.2s; position: relative; }
+.img-card:hover { transform: scale(1.02); }
+.img-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease-in; background: #374151; }
+.trigger-loading { text-align: center; padding: 30px; font-weight: bold; color: #9ca3af; width: 100%; }
+
+/* Lightbox css */
+.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+.lightbox img { max-width: 85%; max-height: 85%; border-radius: 4px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+.close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
