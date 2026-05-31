@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="darkModeToggle">🌓 Toggle Theme</button>
+        <input type="text" id="searchBar" placeholder="Tìm kiếm sản phẩm...">
+        <div class="cart-container">🛒 Giỏ hàng <span id="cartBadge">0</span></div>
+    </header>
+
+    <div class="controls">
+        <div class="categories" id="categoryBtns">
+            <button class="cat-btn active" data-cat="all">Tất cả</button>
+            <button class="cat-btn" data-cat="phone">Điện thoại</button>
+            <button class="cat-btn" data-cat="laptop">Laptop</button>
+            <button class="cat-btn" data-cat="tablet">Máy tính bảng</button>
+            <button class="cat-btn" data-cat="accessory">Phụ kiện</button>
+        </div>
+        <select id="sortSelect">
+            <option value="none">Sắp xếp</option>
+            <option value="priceAsc">Giá tăng dần</option>
+            <option value="priceDesc">Giá giảm dần</option>
+            <option value="ratingDesc">Đánh giá cao nhất</option>
+        </select>
+    </div>
+
+    <main class="product-grid" id="productGrid"></main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
